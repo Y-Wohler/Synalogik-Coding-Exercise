@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 class Spellchecker {
-    private static int wordCount = 0;       //Holds the number of words in the sample.txt file that is not included in the dictionary.txt file.
+    private static int wordCount = 0;       //Holds the number of words in the sample.txt 
 
     static void checkFile(String filename){
         /*
@@ -76,10 +76,11 @@ class Spellchecker {
                 }
             }
         }
-        System.out.println("The most frequently occurring word length is " + highestFreq + ", for word lengths of " + ((indexFreq2 == 0) ? indexFreq1 : indexFreq1 + " & " + indexFreq2));
+        System.out.println("The most frequently occurring word length is " + highestFreq + ", for word lengths of " + 
+                           ((indexFreq2 == 0) ? indexFreq1 : indexFreq1 + " & " + indexFreq2));
     }
 
     public static void main(String[] args) {
-        checkFile("src/sample.txt");
+        checkFile("sample.txt");
     }
 }

@@ -59,27 +59,42 @@ class WordCount {
         int highestFreq = 0;
         int indexFreq1 = 0;
         int indexFreq2 = 0;
+        List<Integer> moreFrequency = new ArrayList<>();
 
         for (int j : list) {
             wordLen[j] += 1;
         }
-        for (int k = 0; k <= wordLen.length-1; k++){
-            if (wordLen[k] != 0 && k != 0){
+        for (int k = 0; k <= wordLen.length-1; k++) {
+            if (wordLen[k] != 0 && k != 0) {
                 System.out.println("Number of words of length " + (k) + " is " + wordLen[k]);
             }
-            if (wordLen[k] >= highestFreq){
-                if (wordLen[k] == highestFreq){
+            if (wordLen[k] >= highestFreq) {
+                if (wordLen[k] == highestFreq && wordLen[k] != 0) {
                     indexFreq2 = k;
+                    moreFrequency.add(indexFreq2);
+
                 }else {
+
                     highestFreq = wordLen[k];
                     indexFreq1 = k;
+                    moreFrequency.add(indexFreq1);
                 }
             }
         }
-        System.out.println("The most frequently occurring word length is " + highestFreq + ", for word lengths of " +
-                ((indexFreq2 == 0) ? indexFreq1 : indexFreq1 + " & " + indexFreq2));
+        for (int y = 0; y < moreFrequency.size();y++){
+            if (wordLen[moreFrequency.get(y)] < wordLen[indexFreq2]){
+                moreFrequency.remove(y);
+                y--;
+            }
+        }
+        if (moreFrequency.size() <=2){
+            System.out.println("The most frequently occurring word length is " + highestFreq + ", for word lengths of " +
+                    ((indexFreq2 == 0) ? indexFreq1 : indexFreq1 + " & " + moreFrequency.get(1)));
+        }else {
+            System.out.println("The most frequently occurring word length is " + highestFreq + ", for word lengths of:");
+            moreFrequency.forEach(result -> System.out.print(result + ","));
+        }
     }
-
     public static void main(String[] args) {
         URL path = WordCount.class.getResource("sample.txt");   //Finds the path of the file within the same directory
         checkFile(path);

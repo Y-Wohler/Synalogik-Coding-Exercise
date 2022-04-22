@@ -1,6 +1,6 @@
 # Synalogik-Coding-Exercise
 
-To run: run the main method,
+To run: run the main method of the WordCount.java file,
 
 To change file: change in the main method (URL path = WordCount.class.getResource("sample.txt");) within the quotation marks ("").
 

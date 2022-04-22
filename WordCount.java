@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-class Spellchecker {
+class WordCount {
     private static int wordCount = 0;       //Holds the number of words in the sample.txt 
 
     static void checkFile(String filename){

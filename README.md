@@ -1,0 +1,1 @@
+# Synalogik-Coding-Exercise

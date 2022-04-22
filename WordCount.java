@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,9 +11,9 @@ import java.util.Scanner;
 class WordCount {
     private static int wordCount = 0;       //Holds the number of words in the sample.txt 
 
-    static void checkFile(String filename){
+    static void checkFile(URL path){
         /*
-         * Reads the sample.txt or filename that is passed through in the parameter,
+         * Reads the sample.txt or the file path which is passed through in the parameter,
          * Splits every line and counts how many elements "wordCount" after the split, excluding any spaces,
          * Adds the length of each word to the array list "lenList",
          * Prints the word count and the average word length.
@@ -19,7 +21,7 @@ class WordCount {
          * */
         List<Integer> lenList = new ArrayList<>();
         try{
-            File file = new File(filename);
+            File file = new File(path.toURI());
             Scanner scan= new Scanner(file);
             while (scan.hasNextLine()){
                 String[] value = scan.nextLine().split("([\"]|\\s)");
@@ -35,7 +37,7 @@ class WordCount {
             System.out.println("Average word length = " + averageCalc(lenList,wordCount));  //Average Length
             lenWord(lenList);   //Most frequent and word lengths
 
-        } catch (FileNotFoundException e) {     //No File exception
+        } catch (FileNotFoundException | URISyntaxException e) {     //No File exception
             System.out.println("File not found.");
             e.printStackTrace();
         }
@@ -74,11 +76,12 @@ class WordCount {
                 }
             }
         }
-        System.out.println("The most frequently occurring word length is " + highestFreq + ", for word lengths of " + 
-                           ((indexFreq2 == 0) ? indexFreq1 : indexFreq1 + " & " + indexFreq2));
+        System.out.println("The most frequently occurring word length is " + highestFreq + ", for word lengths of " +
+                ((indexFreq2 == 0) ? indexFreq1 : indexFreq1 + " & " + indexFreq2));
     }
 
     public static void main(String[] args) {
-        checkFile("sample.txt");
+        URL path = WordCount.class.getResource("sample.txt");   //Finds the path of the file within the same directory
+        checkFile(path);
     }
 }

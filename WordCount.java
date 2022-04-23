@@ -81,7 +81,7 @@ class WordCount {
                 }
             }
         }
-        for (int y = 0; y < moreFrequency.size();y++){
+        for (int y = 0; y < moreFrequency.size();y++){      //Removes all false values with lower frequency as the highest frequency.
             if (wordLen[moreFrequency.get(y)] < wordLen[indexFreq2]){
                 moreFrequency.remove(y);
                 y--;

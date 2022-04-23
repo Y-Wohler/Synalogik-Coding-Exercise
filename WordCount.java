@@ -87,10 +87,10 @@ class WordCount {
                 y--;
             }
         }
-        if (moreFrequency.size() <=2){
+        if (moreFrequency.size() <=2){ //Print function for word lengths for alone values or 1 similarity, for the same frequency of 2 word lengths, if statement within
             System.out.println("The most frequently occurring word length is " + highestFreq + ", for word lengths of " +
                     ((indexFreq2 == 0) ? indexFreq1 : indexFreq1 + " & " + moreFrequency.get(1)));
-        }else {
+        }else {             //Print Function for more than 2 similarities
             System.out.println("The most frequently occurring word length is " + highestFreq + ", for word lengths of:");
             moreFrequency.forEach(result -> System.out.print(result + ","));
         }

@@ -49,7 +49,7 @@ class WordCount {
             totalInt = totalInt + i;
         }
         double averageCount = (double) totalInt / wordCount;
-        DecimalFormat df = new DecimalFormat("###.###");
+        DecimalFormat df = new DecimalFormat("###.###");        //Decimal Format
         return df.format(averageCount);
     }
 
@@ -92,7 +92,7 @@ class WordCount {
                     ((indexFreq2 == 0) ? indexFreq1 : indexFreq1 + " & " + moreFrequency.get(1)));
         }else {             //Print Function for more than 2 similarities
             System.out.println("The most frequently occurring word length is " + highestFreq + ", for word lengths of:");
-            moreFrequency.forEach(result -> System.out.print(result + ","));
+            moreFrequency.forEach(result -> System.out.print(result + ","));        //Lambda expression to print out all the values within the moreFrequency list
         }
     }
     public static void main(String[] args) {

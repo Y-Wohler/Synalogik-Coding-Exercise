@@ -53,7 +53,7 @@ class WordCount {
         return df.format(averageCount);
     }
 
-    static void lenWord(List<Integer> list){
+    static void lenWord(List<Integer> list){        //Length function to calculate the legnth of the string and compares their frequency.
         int[] wordLen = new int[45];                //45 because it is the longest English word in the Oxford English Dictionary.
         Arrays.fill(wordLen, 0);
         int highestFreq = 0;

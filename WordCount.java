@@ -68,7 +68,7 @@ class WordCount {
             if (wordLen[k] != 0 && k != 0) {
                 System.out.println("Number of words of length " + (k) + " is " + wordLen[k]);
             }
-            if (wordLen[k] >= highestFreq) {
+            if (wordLen[k] >= highestFreq) {        //Comparison with the current value and the highest recorded value so far.
                 if (wordLen[k] == highestFreq && wordLen[k] != 0) {
                     indexFreq2 = k;
                     moreFrequency.add(indexFreq2);
